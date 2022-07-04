@@ -17,7 +17,7 @@ function Form() {
     <form  onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Saisissez votre message..."
+        placeholder=" 🙂 Message"
         value={inputValue}
         onChange={(event) => dispatch(changeInputMessage(event.target.value))}
       />

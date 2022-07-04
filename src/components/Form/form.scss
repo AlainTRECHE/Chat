@@ -1,9 +1,15 @@
 input {
   font-size: 2rem;
-  margin-top: 40%;
+  margin-top: 20%;
   margin-left: 5%;
+  padding: 1rem;
+  border-radius: 40px;
 }
 button {
   font-size: 2rem;
-  background-color: darkorange;
+  background-color:white;
+  border-radius: 100px;
+}
+button:hover {
+  background-color:#dcf8c6 ;
 }

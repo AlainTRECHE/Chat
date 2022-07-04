@@ -1,17 +1,17 @@
 .message {
 
   &__author{
-   color: darkorange;
-   font-size: 2rem;
-   margin-top: 5%;
+   color: black;
+   font-size: 1rem;
+   margin-top: 2%;
    margin-left: 5%;
 
   }
   &__content{
-    border: 1px solid black;
     padding: 1rem;
-    background-color: darkorange;
-    width: 40%;
+    background-color: #dcf8c6;
+    width: 20%;
+    border-radius: 10px;
     margin-left: 5%;
   }
 }
