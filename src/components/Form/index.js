@@ -17,13 +17,16 @@ function Form() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    dispatch(addMessage());
+    if (inputValue.trim() !== '') {
+      dispatch(addMessage());
+    }
   };
 
   return (
     <form  onSubmit={handleSubmit}>
       <input
         ref={inputRef}
+        required
         type="text"
         placeholder=" 🙂 Message"
         value={inputValue}

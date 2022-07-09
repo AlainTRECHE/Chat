@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import woop from 'src/assets/woop.mp3';
 import './messages.scss';
 
 function Messages() {
@@ -7,9 +8,13 @@ function Messages() {
 
   const messagesRef = useRef(null);
 
+  const audioRef = useRef(new Audio(woop));
+
   useEffect(() => {
     const messagesElement = messagesRef.current;
     messagesElement.scrollTop = messagesElement.scrollHeight;
+    audioRef.current.currentTime = 0;
+    audioRef.current.play();
   }, [messages]);
 
   return (

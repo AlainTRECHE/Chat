@@ -61,6 +61,15 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(mp3)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: { outputPath: 'sound/' },
+          },
+        ],
+      },
       // Images
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
