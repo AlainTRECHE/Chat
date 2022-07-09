@@ -1,11 +1,22 @@
+import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import './messages.scss';
 
 function Messages() {
   const messages = useSelector((state) => state.messages);
 
+  const messagesRef = useRef(null);
+
+  useEffect(() => {
+    const messagesElement = messagesRef.current;
+    messagesElement.scrollTop = messagesElement.scrollHeight;
+  }, [messages]);
+
   return (
-    <div className="messages">
+    <div 
+    className="messages"
+    ref={messagesRef}
+    >
       {
         messages.map((message) => (
           <div

@@ -27,28 +27,18 @@ const reducer = (state = initialState, action) => {
       };
       case ADD_MESSAGE:
       return {
-        // je deverse mon ancien état
         ...state,
-        // et maintenant je m'occupe des messages
         messages: [
-          // je recopie les anciens...
           ...state.messages,
-          // et j'en ajoute un nouveau
           {
-            // je récup le plus rand id, et j'ajoute 1
             id: getHighestId(state) + 1,
-            // facile : le contenu vient du champ controlé
             content: state.inputMessageValue,
-            // pour l'instant, le author est en dur
             author: "Bob",
           },
         ],
-        // je remets la valeur de l'input a vide
         inputMessageValue: "",
       };
-    // si l'action n'est pas connue
     default:
-      // je renvoie le state tel quel
       return state;
   }
 };
