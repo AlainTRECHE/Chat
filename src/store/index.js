@@ -16,6 +16,7 @@ const initialState = {
     },
   ],
   inputMessageValue: '',
+  areSettingsOpen: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -37,6 +38,11 @@ const reducer = (state = initialState, action) => {
           },
         ],
         inputMessageValue: "",
+      };
+      case 'TOGGLE_SETTINGS':
+      return {
+        ...state,
+        areSettingsOpen: !state.areSettingsOpen,
       };
     default:
       return state;
