@@ -11,7 +11,7 @@ function Settings() {
         type="button"
         className="settings__toggle"
         onClick={() => {
-          dispatch({ type: 'TOGGLE_SETTINGS' });
+          dispatch({ type: "TOGGLE_SETTINGS" });
         }}
       >
         +
@@ -27,7 +27,9 @@ function Settings() {
               type="password"
               className="settings__input"
             />
-            <button type="submit">Envoyer</button>
+            <button type="submit"
+                    className="settings__submit"
+                    >Envoyer</button>
           </>
         )
       }

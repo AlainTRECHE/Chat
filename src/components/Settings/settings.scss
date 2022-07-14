@@ -1,9 +1,30 @@
 .settings {
+  background-color:#dcf8c6 ;
   position: fixed;
   top: 0;
   right: 0;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 1rem;
 
   &__input {
     display: block;
+    margin-top: 2rem;
+    border: white;
+  }
+
+  &__toggle {
+    background-color:#25d366 ;
+    width: 2.6rem;
+    color: white;
+    border: white;
+  }
+
+  &__submit {
+    background-color: #25d366;
+    margin-top: 2rem;
+    color: white;
+    border: white;
+    padding: 0.5rem;
   }
 } 
