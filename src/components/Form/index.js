@@ -23,8 +23,11 @@ function Form() {
   };
 
   return (
-    <form  onSubmit={handleSubmit}>
+    <form  onSubmit={handleSubmit}
+           className="add"
+    >
       <input
+        className="add_input"
         ref={inputRef}
         required
         type="text"
@@ -32,7 +35,9 @@ function Form() {
         value={inputValue}
         onChange={(event) => dispatch(changeInputMessage(event.target.value))}
       />
-      <button type="submit">
+      <button 
+        className="add_submit"
+        type="submit">
        <ChevronRight 
         size={30}
         strokeWidth={3}

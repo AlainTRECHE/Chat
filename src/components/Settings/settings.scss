@@ -4,20 +4,25 @@
   top: 0;
   right: 0;
   border-radius: 20px;
-  padding: 2rem;
+  padding: 1rem;
   margin: 1rem;
+  display: block;
 
   &__input {
     display: block;
     margin-top: 2rem;
+    margin-left: 2rem;
     border: white;
+    border-radius: 20px;
+    font-size: 2rem;
+    width: 80%;
   }
 
   &__toggle {
     background-color:#25d366 ;
-    width: 2.6rem;
     color: white;
     border: white;
+    border-radius: 100%;
   }
 
   &__submit {
@@ -26,5 +31,6 @@
     color: white;
     border: white;
     padding: 0.5rem;
+    border-radius: 20px;
   }
 } 

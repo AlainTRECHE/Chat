@@ -1,18 +1,21 @@
-input {
+.add {
+  &_submit {
   font-size: 2rem;
   margin-top: 20%;
-  margin-left: 5%;
   padding: 1rem;
   border-radius: 40px;
-}
-button {
+ }
+ &_submit:hover {
+  background-color:#dcf8c6 ;
+ }
+ &_input {
   font-size: 2rem;
   background-color:white;
   border-radius: 100px;
-}
-button:hover {
+  padding: 1.5rem;
+ }
+ &_input:hover {
   background-color:#dcf8c6 ;
-}
-.submit {
-  padding-top: 7px;
+ }
+
 }
