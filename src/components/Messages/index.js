@@ -21,6 +21,7 @@ function Messages() {
     <div 
     className="messages"
     ref={messagesRef}
+    autoPlay muted={true}
     >
       {
         messages.map((message) => (

@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSettings, changeSettingsFields } from "src/store/actions";
+import { submitLogin } from "../../store/actions";
 import "./settings.scss";
 
 function Settings() {
@@ -7,7 +8,13 @@ function Settings() {
   const dispatch = useDispatch();
 
   return (
-    <form className="settings">
+    <form 
+      className="settings"
+      onSubmit={(e) => {
+        e.preventDefault();
+        dispatch(submitLogin);
+      }}
+      >
       <h2 className="settings__title">Connexion</h2>
       <button
         type="button"
@@ -15,9 +22,7 @@ function Settings() {
         onClick={() => {
           dispatch(toggleSettings());
         }}
-      >
-        +
-      </button>
+      >+</button>
       {
         areOpen && (
           <>
@@ -25,13 +30,13 @@ function Settings() {
               type="text"
               className="settings__input"
               value={emailValue}
-              onChange={(event) => dispatch(changeSettingsFields(event.target.value, "emailValue"))}
+              onChange={(e) => dispatch(changeSettingsFields(e.target.value, "emailValue"))}
             />
             <input
               type="password"
               className="settings__input"
               value={passwordValue}
-              onChange={(event) => dispatch(changeSettingsFields(event.target.value, "passwordValue"))}
+              onChange={(e) => dispatch(changeSettingsFields(e.target.value, "passwordValue"))}
             />
             <button type="submit"
                     className="settings__submit"
