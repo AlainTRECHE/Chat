@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { toggleSettings } from "src/store/actions";
+import { toggleSettings, changeSettingsFields } from "src/store/actions";
 import "./settings.scss";
 
 function Settings() {
-  const areOpen = useSelector((state) => state.areSettingsOpen);
+  const { areOpen, emailValue, passwordValue } = useSelector((state) => state.settings);
   const dispatch = useDispatch();
 
   return (
@@ -13,7 +13,7 @@ function Settings() {
         type="button"
         className="settings__toggle"
         onClick={() => {
-          dispatch(toggleSettings);
+          dispatch(toggleSettings());
         }}
       >
         +
@@ -24,10 +24,14 @@ function Settings() {
             <input
               type="text"
               className="settings__input"
+              value={emailValue}
+              onChange={(event) => dispatch(changeSettingsFields(event.target.value, "emailValue"))}
             />
             <input
               type="password"
               className="settings__input"
+              value={passwordValue}
+              onChange={(event) => dispatch(changeSettingsFields(event.target.value, "passwordValue"))}
             />
             <button type="submit"
                     className="settings__submit"

@@ -1,6 +1,11 @@
-import { createStore } from 'redux';
-import { CHANGE_INPUT_MESSAGE, ADD_MESSAGE, TOGGLE_SETTINGS } from './actions';
-import { getHighestId } from './selectors';
+import { createStore } from "redux";
+import { 
+  CHANGE_INPUT_MESSAGE,
+  ADD_MESSAGE, 
+  TOGGLE_SETTINGS,
+  CHANGE_SETTINGS_FIELDS,
+} from "./actions";
+import { getHighestId } from "./selectors";
 
 const initialState = {
   messages: [
@@ -15,8 +20,12 @@ const initialState = {
       content: "ça va ?",
     },
   ],
-  inputMessageValue: '',
-  areSettingsOpen: true,
+  inputMessageValue: "",
+  settings: {
+    areOpen: true,
+    emailValue: "",
+    passwordValue: "",
+  }
 };
 
 const reducer = (state = initialState, action) => {
@@ -42,8 +51,19 @@ const reducer = (state = initialState, action) => {
       case TOGGLE_SETTINGS:
       return {
         ...state,
-        areSettingsOpen: !state.areSettingsOpen,
+       settings: {
+        ...state.settings,
+        areOpen: !state.settings.areOpen,
+       },
       };
+      case CHANGE_SETTINGS_FIELDS:
+        return {
+          ...state,
+          settings: {
+            ...state.settings,
+            [action.inputKey]: action.newValue,
+          },
+        };
     default:
       return state;
   }
