@@ -4,7 +4,7 @@ import { submitLogin } from "../../store/actions";
 import "./settings.scss";
 
 function Settings() {
-  const { areOpen, emailValue, passwordValue } = useSelector((state) => state.settings);
+  const { areOpen, emailValue, passwordValue, isLoading } = useSelector((state) => state.settings);
   const dispatch = useDispatch();
 
   return (
@@ -23,6 +23,7 @@ function Settings() {
           dispatch(toggleSettings());
         }}
       >+</button>
+      {isLoading && <p>chargement en cours</p>}
       {
         areOpen && (
           <>

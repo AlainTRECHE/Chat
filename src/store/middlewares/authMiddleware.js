@@ -1,11 +1,14 @@
 import axios from "axios";
-import { submitLogin } from "../actions";
+
+import { submitLogin, submitLoginSuccess } from "../actions";
 
 const authMiddleware = (store) => (next) => (action) => {
   console.log("une action passe dans authMiddleware: ", action);
 
   if (action.type === submitLogin) {
     console.log("action de login reçu dans le authMiddleware");
+
+    next(action);
 
     const state = store.getState();
 
@@ -22,7 +25,7 @@ const authMiddleware = (store) => (next) => (action) => {
     };
     axios(config)
       .then((response) => {
-       console.log("reponse recue :", response.data);
+       store.dispatch(submitLoginSuccess);
     })
       .catch((error) => {
         console.log(error);

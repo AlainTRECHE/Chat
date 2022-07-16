@@ -3,7 +3,10 @@ import {
   ADD_MESSAGE, 
   TOGGLE_SETTINGS,
   CHANGE_SETTINGS_FIELDS,
+  SUBMIT_LOGIN,
+  SUBMIT_LOGIN_SUCCESS,
 } from "./actions";
+
 import { getHighestId } from "./selectors";
 
 const initialState = {
@@ -20,10 +23,12 @@ const initialState = {
     },
   ],
   inputMessageValue: "",
+  name: null,
   settings: {
     areOpen: true,
-    emailValue: "",
-    passwordValue: "",
+    isLoading: false,
+    emailValue: "bouclierman@herocorp.io",
+    passwordValue: "jennifer",
   }
 };
 
@@ -43,7 +48,7 @@ const reducer = (state = initialState, action) => {
           {
             id: getHighestId(state) + 1,
             content: state.inputMessageValue,
-            author: "Bob",
+            author: state.name,
           },
         ],
         inputMessageValue: "",
@@ -64,6 +69,23 @@ const reducer = (state = initialState, action) => {
             [action.inputKey]: action.newValue,
           },
         };
+      case SUBMIT_LOGIN:
+        return {
+          ...state,
+          settings: {
+            ...state.settings,
+            isLoading: true,
+          },
+        };
+      case SUBMIT_LOGIN_SUCCESS:
+        return {
+          ...state,
+          name: action.name,
+          settings: {
+            ...state.settings,
+            isLoading: false,
+          }
+        }
     default:
       return state;
   }

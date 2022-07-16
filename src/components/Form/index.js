@@ -1,12 +1,15 @@
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { changeInputMessage, addMessage } from 'src/store/actions';
 import { ChevronRight } from "react-feather";
+
+import { changeInputMessage, addMessage } from 'src/store/actions';
 
 import "./form.scss";
 
 function Form() {
   const inputValue = useSelector((state) => state.inputMessageValue);
+  const isLogged = useSelector((state) => state.name !== null);
+
   const dispatch = useDispatch();
   const inputRef = useRef(null);
 
@@ -14,8 +17,8 @@ function Form() {
     inputRef.current.focus();
   }, []);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
     if (inputValue.trim() !== '') {
       dispatch(addMessage());
@@ -30,14 +33,17 @@ function Form() {
         className="add__input"
         ref={inputRef}
         required
+        disabled={!isLogged}
         type="text"
         placeholder=" 🙂 Message"
         value={inputValue}
-        onChange={(event) => dispatch(changeInputMessage(event.target.value))}
+        onChange={(e) => dispatch(changeInputMessage(e.target.value))}
       />
       <button 
         className="add__submit"
-        type="submit">
+        type="submit"
+        disabled={!isLogged}
+        >
        <ChevronRight 
         size={30}
         strokeWidth={3}
