@@ -7,6 +7,7 @@ function Settings() {
 
   return (
     <form className="settings">
+      <h2 className="settings__title">Connexion</h2>
       <button
         type="button"
         className="settings__toggle"

@@ -3,15 +3,19 @@
   &__author{
    color: black;
    font-size: 1rem;
+   font-weight: bold;
    margin-top: 2%;
    margin-left: 5%;
+   margin-bottom: 0.5%;
 
   }
   &__content{
     padding: 1rem;
     background-color: #dcf8c6;
     width: 20%;
-    border-radius: 15px;
+    border-radius: 40px;
     margin-left: 5%;
+    font-weight: bold;
+    font-size: 1.2rem;
   }
 }

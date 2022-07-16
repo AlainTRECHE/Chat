@@ -27,7 +27,7 @@ function Form() {
            className="add"
     >
       <input
-        className="add_input"
+        className="add__input"
         ref={inputRef}
         required
         type="text"
@@ -36,7 +36,7 @@ function Form() {
         onChange={(event) => dispatch(changeInputMessage(event.target.value))}
       />
       <button 
-        className="add_submit"
+        className="add__submit"
         type="submit">
        <ChevronRight 
         size={30}

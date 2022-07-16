@@ -11,10 +11,10 @@
   &__input {
     display: block;
     margin-top: 2rem;
-    margin-left: 2rem;
+    margin-left: 3.5rem;
     border: white;
     border-radius: 20px;
-    font-size: 2rem;
+    font-size: 2.5rem;
     width: 80%;
   }
 
@@ -23,8 +23,14 @@
     color: white;
     border: white;
     border-radius: 100%;
+    font-size: 2rem;
+    width: 2.5rem;
+    margin-left: 1.9rem;
+    margin-top: 0.2rem;
   }
-
+  &__toggle:hover {
+    color: #128c7e;
+  }
   &__submit {
     background-color: #25d366;
     margin-top: 2rem;
@@ -32,5 +38,17 @@
     border: white;
     padding: 0.5rem;
     border-radius: 20px;
+    font-size: 1.5rem;
+    margin-left: 1.9rem;
+    margin-bottom: 1rem;
+  }
+  &__submit:hover {
+    color: #128c7e;
+  }
+  &__title {
+   text-align: center;
+   font-weight: bold;
+   font-size: 1.2rem;
+   color: #25d366;
   }
 } 
