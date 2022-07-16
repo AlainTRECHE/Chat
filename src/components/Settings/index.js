@@ -1,5 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
-import './settings.scss';
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSettings } from "src/store/actions";
+import "./settings.scss";
 
 function Settings() {
   const areOpen = useSelector((state) => state.areSettingsOpen);
@@ -12,7 +13,7 @@ function Settings() {
         type="button"
         className="settings__toggle"
         onClick={() => {
-          dispatch({ type: "TOGGLE_SETTINGS" });
+          dispatch(toggleSettings);
         }}
       >
         +

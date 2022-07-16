@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import { CHANGE_INPUT_MESSAGE, ADD_MESSAGE } from './actions';
+import { CHANGE_INPUT_MESSAGE, ADD_MESSAGE, TOGGLE_SETTINGS } from './actions';
 import { getHighestId } from './selectors';
 
 const initialState = {
@@ -39,7 +39,7 @@ const reducer = (state = initialState, action) => {
         ],
         inputMessageValue: "",
       };
-      case 'TOGGLE_SETTINGS':
+      case TOGGLE_SETTINGS:
       return {
         ...state,
         areSettingsOpen: !state.areSettingsOpen,
